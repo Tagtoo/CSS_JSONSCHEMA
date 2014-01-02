@@ -1,0 +1,50 @@
+<body>
+<style>
+    body {
+        font-family: arial, sans-serif;
+        font-size: 18px;
+    }
+    pre {
+        background: #eee;
+        padding: 10px;
+        width: 800px;
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+</style>
+
+<!-- Add this if you're supporting IE 7, 8 -->
+<script type="text/javascript" src="/static/json2.js"></script>
+<script type="text/javascript" src="/static/cssjson.js"></script>
+<script type="text/javascript">
+
+    // Dummy CSS
+
+    function css2json(){
+        var container = document.getElementById('container');
+        var input = container.value;
+        input = input.replace(/\/\/.*/, '').replace(/\n/g, '').replace(/\/\*.*?\*\//g, '')
+        var result = JSON.stringify(CSSJSON.toJSON(input), undefined, 2)
+        container.value = result
+    }
+    function json2css(){
+        var container = document.getElementById('container');
+        var input = container.value;
+        input = JSON.parse(input)
+        console.log(input);
+        var result = CSSJSON.toCSS(input)
+        container.value = result
+    }
+
+    
+</script>
+
+<div style="text-align: center;">
+    <h2>input</h2>
+    <textarea style="width:80%;height:500px" id="container"></textarea>
+    <br>
+    <button onclick="css2json()">css to json</button>
+    <button onclick="json2css()">json to css</button>
+<div>
+
+</body>
