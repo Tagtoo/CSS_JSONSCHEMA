@@ -1,4 +1,4 @@
 #json & css 互換的線上service
 
 
-(site)['http://css2json.appspot.com/']
+[site](http://css2json.appspot.com/)
